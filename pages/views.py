@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from django.http import HttpResponse
 import urllib.request
 import json
@@ -37,6 +38,7 @@ class home_view(TemplateView):
             views = json.loads(data)["items"][0]["statistics"]["viewCount"]
             videos = json.loads(data)["items"][0]["statistics"]["videoCount"]
             data = {'name': name, 'subscriptions': int(subs), 'videos': int(videos), 'views': int(views)}
+            Channel.objects.create(name=name, subscriptions=int(subs), videos=int(videos), views=int(views))
             return data
 
         form = ChannelForm(request.POST)
