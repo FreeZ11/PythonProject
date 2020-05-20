@@ -112,8 +112,11 @@ nav ul li a:hover {
 }
 
 .input-field {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    height: 20px;
+    height: 30px;
     width: 280px;
     padding: 5px;
     margin: 0.75rem 2rem;

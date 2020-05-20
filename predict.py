@@ -2,8 +2,6 @@
 
 from datetime import date
 from datetime import timedelta
-
-import matplotlib.pyplot as plt
 import numpy as np
 
 arr = [20, -4, 201, -33, 100, 500, 123, -42, 120]

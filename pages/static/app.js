@@ -36,7 +36,7 @@ function setChart() {
         data: {
             labels: labels,
             datasets: [{
-                label: '# of Votes',
+                label: '# of Views',
                 data: defaultData,
                 backgroundColor: [
                     'rgba(0, 128, 0, 0.3)',
@@ -48,24 +48,25 @@ function setChart() {
                     'rgba(0, 128, 0, 0.3)',
                     'rgba(0, 128, 0, 0.3)',
                     'rgba(0, 128, 0, 0.3)',
-                    'rgba(155, 135, 12, 0.3)',
+                    'rgba(155,135,12,0.59)',
 
                 ],
                 borderColor: [
-                    'rgba(17, 59, 8, 1)',
-                    'rgba(17, 59, 8, 1)',
-                    'rgba(17, 59, 8, 1)',
-                    'rgba(17, 59, 8, 1)',
-                    'rgba(17, 59, 8, 1)',
-                    'rgba(17, 59, 8, 1)',
-                    'rgba(17, 59, 8, 1)',
-                    'rgba(17, 59, 8, 1)',
-                    'rgba(17, 59, 8, 1)',
-                    'rgba(155, 135, 12, 1)',
+                    'rgb(37,144,17)',
+                    'rgb(37,144,17)',
+                    'rgb(37,144,17)',
+                    'rgb(37,144,17)',
+                    'rgb(37,144,17)',
+                    'rgb(37,144,17)',
+                    'rgb(37,144,17)',
+                    'rgb(37,144,17)',
+                    'rgb(37,144,17)',
+                    'rgb(208,182,0)',
 
                 ],
                 borderWidth: 1
-            }]
+            }],
+
         },
         options: {
             scales: {
@@ -74,6 +75,7 @@ function setChart() {
                         beginAtZero: true
                     }
                 }]
+
             }
         }
     });
