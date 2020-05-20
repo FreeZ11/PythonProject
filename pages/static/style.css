@@ -204,3 +204,19 @@ nav ul li a:hover {
     }
 }
 
+#result{
+    background: var(--main-backgroung-color);
+}
+.channel_name{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    height: 20px;
+    width: 280px;
+    padding: 5px;
+    margin: 0.75rem 2rem;
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+}
+
+#chart_div{
+    background: var(--main-backgroung-color);
+}

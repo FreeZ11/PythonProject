@@ -8,3 +8,6 @@ class Channel(models.Model):
     subscriptions = models.DecimalField(max_digits=10000000, decimal_places=1)
     videos = models.DecimalField(max_digits=1000000, decimal_places=1)
     views = models.DecimalField(max_digits=10000000, decimal_places=1)
+
+    def __str__(self):
+        return self.name

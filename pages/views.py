@@ -1,12 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import urllib.request
 import json
 # Create your views here.
-from .forms import ChannelForm, RawChannelForm
+from .forms import ChannelForm
 from .models import Channel
-
+from django.views import View
 # def home_view(request):
 #     form = ChannelForm(request.POST)
 #     text = ""
@@ -21,12 +21,16 @@ from .models import Channel
 from django.views.generic import TemplateView
 
 
-class home_view(TemplateView):
+class home_view(View):
     template_name = 'index.html'
 
-    def post(self, request):
-        text = ""
+    def get(self, request):
+        form = ChannelForm(request.GET)
+        channels = Channel.objects.last()
+        context = {'form': form, 'channels': channels}
+        return render(request, self.template_name, context)
 
+    def post(self, request):
         def get_data(name):
             """Get info about YT channel, and return dictionary."""
             key = "AIzaSyCGpvMVtDdvBVboHjxRDsWdx4wXTkQPf_0"
@@ -44,9 +48,17 @@ class home_view(TemplateView):
         form = ChannelForm(request.POST)
         if form.is_valid():
             text = form.cleaned_data['name']
-            print(text)
-            form = ChannelForm()
-            print(get_data(text))
-        context = {'form': form, 'text': text}
+            get_data(text)
+            return redirect('home')
+        else:
+            return redirect('home')
 
-        return render(request, self.template_name, context)
+
+def get_data(request, *args, **kwargs):
+    values = [360, 420, 2000, 50000]
+    labels = ["Views", "Views","Views","Views"]
+    data = {
+        "values": values,
+        "labels": labels,
+    }
+    return JsonResponse(data)
