@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-
+from predict import predict_next_value
 from django.http import HttpResponse, JsonResponse
 import urllib.request
 import json
 # Create your views here.
 from .forms import ChannelForm
 from .models import Channel
+import numpy
 from django.views import View
 # def home_view(request):
 #     form = ChannelForm(request.POST)
@@ -55,8 +56,10 @@ class home_view(View):
 
 
 def get_data(request, *args, **kwargs):
-    values = [360, 420, 2000, 50000]
-    labels = ["Views", "Views","Views","Views"]
+    values = [-33, 100, 50, 123, -42, 120, 31,-23, 41]
+    prediction = predict_next_value(values)
+    values = prediction[0]
+    labels = prediction[1]
     data = {
         "values": values,
         "labels": labels,
