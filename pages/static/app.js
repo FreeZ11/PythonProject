@@ -12,6 +12,7 @@ window.onscroll = function() {
 
 var endpoint = 'api/data/'
 var defaultData = []
+var defaultDataSubs = []
 var labels = []
 
 $.ajax({
@@ -20,6 +21,7 @@ $.ajax({
     success: function (data) {
         labels = data.labels
         defaultData = data.values
+        defaultDataSubs = data.valuesSubs
         setChart()
     },
     error: function (error_data) {
@@ -61,6 +63,54 @@ function setChart() {
                     'rgb(37,144,17)',
                     'rgb(37,144,17)',
                     'rgb(37,144,17)',
+                    'rgb(208,182,0)',
+
+                ],
+                borderWidth: 1
+            }],
+
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+
+            }
+        }
+    });
+    var ctx2 = document.getElementById('myChart2');
+    var myChart2 = new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '# of Subscriptions',
+                data: defaultDataSubs,
+                backgroundColor: [
+                    'rgba(0,107,186,0.48)',
+                    'rgba(0,107,186,0.48)',
+                    'rgba(0,107,186,0.48)',
+                    'rgba(0,107,186,0.48)',
+                    'rgba(0,107,186,0.48)',
+                    'rgba(0,107,186,0.48)',
+                    'rgba(0,107,186,0.48)',
+                    'rgba(0,107,186,0.48)',
+                    'rgba(0,107,186,0.48)',
+                    'rgba(155,135,12,0.59)',
+                ],
+                borderColor: [
+                    'rgb(1,129,224)',
+                    'rgb(1,129,224)',
+                    'rgb(1,129,224)',
+                    'rgb(1,129,224)',
+                    'rgb(1,129,224)',
+                    'rgb(1,129,224)',
+                    'rgb(1,129,224)',
+                    'rgb(1,129,224)',
+                    'rgb(1,129,224)',
                     'rgb(208,182,0)',
 
                 ],
