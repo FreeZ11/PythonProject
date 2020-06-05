@@ -15,41 +15,50 @@ valuesSubs = []
 class home_view(View):
     template_name = 'index.html'
 
+    def data_getter(self, channel):
+        channel_set = Channel.objects.filter(name=channel)
+        subs = []
+        views = []
+        for p in channel_set:
+            subs.append(int(p.subscriptions))
+            views.append(int(p.views))
+        return views,subs
+
     def get(self, request):
         global values
         global valuesSubs
         form = ChannelForm(request.GET)
         channels = Channel.objects.last()
         if "1st" in request.GET:
-            values = [-33, 3, 50, 123, -42, 120, 31, -23, 41]
-            valuesSubs = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
+            values, valuesSubs = self.data_getter("PewDiePie")
+
         elif "2nd" in request.GET:
-            values = [-33, 16, 50, 123, -42, 120, 31, -23, 41]
-            valuesSubs = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
+            values, valuesSubs = self.data_getter("liebner12")
+
         elif "3rd" in request.GET:
-            values = [-33, 100, 50, 123, -42, 120, 31, -23, 41]
-            valuesSubs = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
+            values, valuesSubs = self.data_getter("UFC")
+
         elif "4th" in request.GET:
-            values = [-33, 100, 50, 123, -42, 120, 31, -23, 41]
-            valuesSubs = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
+            values, valuesSubs = self.data_getter("DisStream")
+
         elif "5th" in request.GET:
-            values = [-33, 200, 50, 123, -42, 120, 31, -23, 41]
-            valuesSubs = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
+            values, valuesSubs = self.data_getter("Nervarien")
+
         elif "6th" in request.GET:
-            values = [-33, 53, 50, 123, -42, 120, 31, -23, 41]
-            valuesSubs = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
+            values, valuesSubs = self.data_getter("mietczynski")
+
         elif "7th" in request.GET:
-            values = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
-            valuesSubs = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
+            values, valuesSubs = self.data_getter("Nightblue3")
+
         elif "8th" in request.GET:
-            values = [-33, 23, 50, 123, -42, 120, 31, -23, 41]
-            valuesSubs = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
+            values, valuesSubs = self.data_getter("OwcaWK")
+
         elif "9th" in request.GET:
-            values = [-33, 420, 50, 123, -42, 120, 31, -23, 41]
-            valuesSubs = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
+            values, valuesSubs = self.data_getter("BadzmyPowazni")
+
         elif "10th" in request.GET:
-            values = [-33, 360, 50, 123, -42, 120, 31, -23, 41]
-            valuesSubs = [-33, 69, 50, 123, -42, 120, 31, -23, 41]
+            values, valuesSubs = self.data_getter("KSW")
+
         context = {'form': form, 'channels': channels}
         return render(request, self.template_name, context)
 
