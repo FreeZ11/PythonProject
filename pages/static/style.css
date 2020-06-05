@@ -57,13 +57,13 @@ nav ul {
     display: flex;
 }
 
-nav ul li a{
+nav ul a{
     display: flex;
     align-items: center;
     height: 0.8rem;
 }
 
-nav ul li a {
+nav ul a {
     color: var(--main-text-color);
     text-decoration: none;
     padding: 20px;
@@ -72,7 +72,7 @@ nav ul li a {
     transition: 1s;
 }
 
-nav ul li a:hover {
+nav ul a:hover {
     filter: grayscale(0%) opacity(1);
     background: #151515;
     color: var(--main-text-color);
@@ -122,6 +122,10 @@ nav ul li a:hover {
     margin: 0.75rem 2rem;
     border: 1px solid #c0c0c0;
     border-radius: 10px;
+    cursor: pointer;
+}
+.input-field a{
+    text-decoration: none;
 }
 
 #main-text{
@@ -220,6 +224,14 @@ nav ul li a:hover {
     border-radius: 10px;
 }
 
-#chart_div{
-    background: var(--main-backgroung-color);
+
+#chart_column1{
+    display: inline-block;
+    width: 45%;
+    margin: 10px;
+}
+#chart_column2{
+    display: inline-block;
+    width: 45%;
+    margin: 10px;
 }

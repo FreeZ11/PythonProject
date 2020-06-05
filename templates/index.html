@@ -3,9 +3,9 @@
     <div class="pagewrapper">
         <nav id="navbar">
             <ul class="nav-list">
-                <li><a href="#welcome-section">Youtuber's</a></li>
-                <li><a href="#projects">Graphs</a></li>
-                <li><a href="#contact-section">Contact</a></li>
+                <a href="#welcome-section"><li>Youtuber's</li></a>
+                <a href="#projects"><li>Graphs</li></a>
+                <a href="#contact-section"><li>Contact</li></a>
             </ul>
             <i class="far fa-caret-square-right" id="icon"></i>
         </nav>
@@ -16,7 +16,6 @@
                 <p>of Youtube statistics</p>
             </div>
 
-
             <div class="column" id="top10-form">
                 <header>
                     <h1 id="title">Choose your Youtuber!</h1>
@@ -24,54 +23,34 @@
                 <div id="top10-results">
                     <form>
                         <div class="row">
-                            <div class="rightTab">
-                                <button type="submit" class="input-field" name="1st">DisStream</button>
-                            </div>
+                            <button onclick="window.location.href='#projects'" type="submit" class="input-field" name="1st">DIS</button>
                         </div>
                         <div class="row">
-                            <div class="rightTab">
-                                <button type="submit" class="input-field" name="2nd">DisStream</button>
-                            </div>
+                            <button onclick="window.location.href='#projects'" type="submit" class="input-field" name="2nd">DIS</button>
                         </div>
                         <div class="row">
-                            <div class="rightTab">
-                                <button type="submit" class="input-field" name="3rd">DisStream</button>
-                            </div>
+                            <button onclick="window.location.href='#projects'" type="submit" class="input-field" name="3rd">DIS</button>
                         </div>
                         <div class="row">
-                            <div class="rightTab">
-                                <button type="submit" class="input-field" name="4th">DisStream</button>
-                            </div>
+                            <button onclick="window.location.href='#projects'" type="submit" class="input-field" name="4th">DIS</button>
                         </div>
                         <div class="row">
-                            <div class="rightTab">
-                                <button type="submit" class="input-field" name="5th">DisStream</button>
-                            </div>
+                            <button onclick="window.location.href='#projects'" type="submit" class="input-field" name="5th">DIS</button>
                         </div>
                         <div class="row">
-                            <div class="rightTab">
-                                <button type="submit" class="input-field" name="6th">DisStream</button>
-                            </div>
+                            <button onclick="window.location.href='#projects'" type="submit" class="input-field" name="6th">DIS</button>
                         </div>
                         <div class="row">
-                            <div class="rightTab">
-                                <button type="submit" class="input-field" name="7th">DisStream</button>
-                            </div>
+                            <button onclick="window.location.href='#projects'" type="submit" class="input-field" name="7th">DIS</button>
                         </div>
                         <div class="row">
-                            <div class="rightTab">
-                                <button type="submit" class="input-field" name="8th">DisStream</button>
-                            </div>
+                            <button onclick="window.location.href='#projects'" type="submit" class="input-field" name="8th">DIS</button>
                         </div>
                         <div class="row">
-                            <div class="rightTab">
-                                <button type="submit" class="input-field" name="9th">DisStream</button>
-                            </div>
+                            <button onclick="window.location.href='#projects'" type="submit" class="input-field" name="9th">DIS</button>
                         </div>
                         <div class="row">
-                            <div class="rightTab">
-                                <button type="submit" class="input-field" name="10th">DisStream</button>
-                            </div>
+                            <button onclick="window.location.href='#projects'" type="submit" class="input-field" name="10th">DIS</button>
                         </div>
                     </form>
                 </div>
@@ -79,14 +58,20 @@
         </section>
 
         <section id="projects">
-            <h2 class="project-tile">Graphs</h2>
-            <p>{{ title }}</p>
-            <form method="POST">{% csrf_token %}
-                {{ form }}
-                <button type="submit" id="submit-btn">Submit</button>
-            </form>
-            <h1 id="result">{{ channels }}</h1>
-            <canvas id="myChart" width="400" height="100"></canvas>
+              <h2 class="project-tile">Graphs</h2>
+{#            <p>{{ title }}</p>#}
+{#            <form method="POST">{% csrf_token %}#}
+{#                {{ form }}#}
+{#                <button type="submit" id="submit-btn">Submit</button>#}
+{#            </form>#}
+{#            <h1 id="result">{{ channels }}</h1>#}
+            <div id="chart_column1">
+                <canvas id="myChart" width="400" height="220"></canvas>
+            </div>
+            <div id="chart_column2">
+                <canvas id="myChart2" width="400" height="220"></canvas>
+            </div>
+
 
         </section>
 
