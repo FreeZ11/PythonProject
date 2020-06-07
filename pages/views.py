@@ -22,7 +22,8 @@ class home_view(View):
         for p in channel_set:
             subs.append(int(p.subscriptions))
             views.append(int(p.views))
-        return views,subs
+        views_growth = [views[i] - views[i - 1] for i in range(1, len(views))]
+        return views_growth[-10:-1], subs[-10:-1]
 
     def get(self, request):
         global values
