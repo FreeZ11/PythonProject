@@ -13,6 +13,10 @@ window.onscroll = function() {
 var endpoint = 'api/data/'
 var defaultData = []
 var defaultDataSubs = []
+let channel_views = ""
+let channel_name = ""
+let channel_videos = ""
+let channel_subs = ""
 var labels = []
 
 $.ajax({
@@ -22,7 +26,12 @@ $.ajax({
         labels = data.labels
         defaultData = data.values
         defaultDataSubs = data.valuesSubs
+        channel_views = data.channel_views
+        channel_name = data.channel_name
+        channel_videos = data.channel_videos
+        channel_subs = data.channel_subs
         setChart()
+        setData()
     },
     error: function (error_data) {
         console.log("error")
@@ -30,7 +39,13 @@ $.ajax({
     }
 })
 
-
+function setData() {
+    document.getElementById('channel_info').innerHTML =
+        "<h1 class='channel_results'>Name: " + channel_name + "</h1>"
+        + "<h1 class='channel_results'>Views: " + channel_views + "</h1>"
+        + "<h1 class='channel_results'>Subs: " + channel_subs + "</h1>"
+        + "<h1 class='channel_results'>Videos: " + channel_videos + "</h1>";
+}
 function setChart() {
     var ctx = document.getElementById('myChart');
     var myChart = new Chart(ctx, {
@@ -78,58 +93,15 @@ function setChart() {
                     }
                 }]
 
+            },
+            title: {
+                display: true,
+                text: 'Increase/decrease of views'
             }
         }
     });
-    var ctx2 = document.getElementById('myChart2');
-    var myChart2 = new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: '# of Subscriptions',
-                data: defaultDataSubs,
-                backgroundColor: [
-                    'rgba(0,107,186,0.48)',
-                    'rgba(0,107,186,0.48)',
-                    'rgba(0,107,186,0.48)',
-                    'rgba(0,107,186,0.48)',
-                    'rgba(0,107,186,0.48)',
-                    'rgba(0,107,186,0.48)',
-                    'rgba(0,107,186,0.48)',
-                    'rgba(0,107,186,0.48)',
-                    'rgba(0,107,186,0.48)',
-                    'rgba(155,135,12,0.59)',
-                ],
-                borderColor: [
-                    'rgb(1,129,224)',
-                    'rgb(1,129,224)',
-                    'rgb(1,129,224)',
-                    'rgb(1,129,224)',
-                    'rgb(1,129,224)',
-                    'rgb(1,129,224)',
-                    'rgb(1,129,224)',
-                    'rgb(1,129,224)',
-                    'rgb(1,129,224)',
-                    'rgb(208,182,0)',
 
-                ],
-                borderWidth: 1
-            }],
-
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-
-            }
-        }
-    });
-    var colorChangeValue = 0; //set this to whatever is the deciding color change value
+var colorChangeValue = 0; //set this to whatever is the deciding color change value
 var dataset = myChart.data.datasets[0];
 for (var i = 0; i < dataset.data.length-1; i++) {
   if (dataset.data[i] < colorChangeValue) {

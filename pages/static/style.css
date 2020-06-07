@@ -226,12 +226,30 @@ nav ul a:hover {
 
 
 #chart_column1{
-    display: inline-block;
-    width: 45%;
-    margin: 10px;
+    width: 60%;
+    margin-left: 80px;
+    float: left;
 }
-#chart_column2{
-    display: inline-block;
-    width: 45%;
-    margin: 10px;
+#channel_info{
+    width: 32%;
+    margin-top: 50px;
+    margin-left: 40px;
+    height: 400px;
+    float: left;
+    margin-left: 40px;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background: var(--accent-color)
+}
+.channel_results{
+    padding: 25px;
+    background: #ad3f3f;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin: 1.3rem 2rem;
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
+
 }
